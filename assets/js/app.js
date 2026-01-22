@@ -66,7 +66,7 @@ const flows = [
 
 const team = [
   {
-    name: 'Mahmoud Abo elros',
+    name: 'محمود عبدالعزيز عبدالغني رجب ابو الروس',
     role: 'Founder — Product & GTM',
     bio: 'Leads Automio to prove to Meta and customers that automation can be trustworthy.',
   },
@@ -110,6 +110,11 @@ const connectorsGrid = document.getElementById('connectors-grid');
 const flowsGrid = document.getElementById('flows-grid');
 const teamGrid = document.getElementById('team-grid');
 const faqList = document.getElementById('faq-list');
+const logosGrid = document.getElementById('logos-grid');
+const testimonialCard = document.getElementById('testimonial-card');
+const tName = document.getElementById('t-name');
+const tRole = document.getElementById('t-role');
+const testimonialDots = document.getElementById('testimonial-dots');
 
 function createCard({ title, desc, tags }) {
   const el = document.createElement('div');
@@ -152,6 +157,58 @@ faqs.forEach((item, idx) => {
   `;
   faqList.appendChild(el);
 });
+
+const logos = ['Noor Retail', 'Forsa Telecom', 'Luma Beauty', 'Atlas Foods', 'Helio Market', 'Northwind Ecom'];
+logos.forEach((name) => {
+  const chip = document.createElement('div');
+  chip.className = 'logo-chip fade-up';
+  chip.textContent = name;
+  logosGrid.appendChild(chip);
+});
+
+const testimonials = [
+  {
+    quote: 'Automio cut our COD returns by 18% with automated confirmations on WhatsApp + IG.',
+    name: 'Mariam K.',
+    role: 'COO, Noor Retail (KSA)',
+  },
+  {
+    quote: 'Meta reviewers passed our templates in one go. The audit trail was the clincher.',
+    name: 'Ali F.',
+    role: 'Head of CX, Forsa Telecom (UAE)',
+  },
+  {
+    quote: 'Inventory-aware replies stopped 90% of “is this available?” tickets overnight.',
+    name: 'Rania S.',
+    role: 'Growth Lead, Luma Beauty (EG)',
+  },
+];
+
+let testimonialIndex = 0;
+function renderTestimonial(index) {
+  const item = testimonials[index];
+  testimonialCard.querySelector('.testimonial-quote').textContent = `“${item.quote}”`;
+  tName.textContent = item.name;
+  tRole.textContent = item.role;
+  testimonialDots.querySelectorAll('.dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
+testimonials.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.className = `dot ${i === 0 ? 'active' : ''}`;
+  dot.addEventListener('click', () => {
+    testimonialIndex = i;
+    renderTestimonial(testimonialIndex);
+  });
+  testimonialDots.appendChild(dot);
+});
+renderTestimonial(testimonialIndex);
+setInterval(() => {
+  testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+  renderTestimonial(testimonialIndex);
+}, 5500);
 
 // Animations on scroll
 const observer = new IntersectionObserver(
@@ -230,3 +287,19 @@ faqList.querySelectorAll('.faq-item').forEach((item) => {
     if (!active) item.classList.add('active');
   });
 });
+
+// Contact form mailto
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(contactForm);
+    const subject = encodeURIComponent('Automio brief');
+    const body = encodeURIComponent(
+      `Name/Company: ${formData.get('name')}\nEmail: ${formData.get('email')}\nChannels: ${formData.get(
+        'channels'
+      )}\nVolume: ${formData.get('volume')}\nAutomation needs: ${formData.get('message')}`
+    );
+    window.location.href = `mailto:hello@automio.jo3.org?subject=${subject}&body=${body}`;
+  });
+}

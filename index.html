@@ -34,9 +34,11 @@
         <a href="#connectors">Connectors</a>
         <a href="#flows">Automations</a>
         <a href="#rollout">Rollout</a>
+        <a href="#proof">Proof</a>
         <a href="#pricing">Pricing</a>
         <a href="#team">Team</a>
         <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
         <button class="ghost-btn" id="about-btn">About</button>
       </nav>
       <div class="actions">
@@ -53,9 +55,11 @@
       <a href="#connectors">Connectors</a>
       <a href="#flows">Automations</a>
       <a href="#rollout">Rollout</a>
+      <a href="#proof">Proof</a>
       <a href="#pricing">Pricing</a>
       <a href="#team">Team</a>
       <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
       <button class="ghost-btn" id="about-btn-mobile">About</button>
       <a class="primary-btn" href="#cta">Book a demo</a>
     </div>
@@ -123,7 +127,7 @@
 
       <section class="signal glass">
         <div class="signal-text">
-          <p>Built to convince Meta you’re a real company: verified domain <strong>automio.jo3.org</strong>, transparent opt-ins, and logged user journeys.</p>
+          <p>Built to convince Meta you’re a real company: verified domain <strong>automio.jo3.org</strong>, transparent opt-ins, and logged user journeys. يقود التنفيذ المؤسس <strong>محمود عبدالعزيز عبدالغني رجب ابو الروس</strong> لضمان الامتثال.</p>
         </div>
         <div class="signal-marquee" aria-hidden="true">
           <div class="marquee-track">
@@ -135,6 +139,14 @@
             <span>HubSpot CRM</span>
           </div>
         </div>
+      </section>
+
+      <section class="logos-strip glass" id="proof">
+        <div class="section-head compact">
+          <p class="eyebrow">Trusted by omni-channel brands</p>
+          <h3>We automate teams across MENA &amp; Europe.</h3>
+        </div>
+        <div class="logos-grid" id="logos-grid"></div>
       </section>
 
       <section class="trust-bar glass">
@@ -284,6 +296,26 @@
         </div>
       </section>
 
+      <section class="testimonials glass" id="testimonials">
+        <div class="section-head">
+          <p class="eyebrow">Social proof</p>
+          <h2>What operators say after Automio takes over.</h2>
+        </div>
+        <div class="testimonial-shell">
+          <div class="testimonial-card" id="testimonial-card">
+            <div class="testimonial-quote">“”</div>
+            <div class="testimonial-meta">
+              <div class="avatar">★</div>
+              <div>
+                <div class="t-name" id="t-name"></div>
+                <div class="t-role muted" id="t-role"></div>
+              </div>
+            </div>
+          </div>
+          <div class="dots" id="testimonial-dots"></div>
+        </div>
+      </section>
+
       <section class="cta-section glass" id="cta">
         <div>
           <p class="eyebrow">Ready in days, not months</p>
@@ -306,7 +338,7 @@
       <section class="grid-section" id="team">
         <div class="section-head">
           <p class="eyebrow">Founders &amp; operators</p>
-          <h2>A crew obsessed with automation, compliance, and margin.</h2>
+          <h2>المؤسس: محمود عبدالعزيز عبدالغني رجب ابو الروس، ومعه فريق يطوّر الأتمتة والامتثال.</h2>
         </div>
         <div class="team-grid" id="team-grid"></div>
       </section>
@@ -317,6 +349,56 @@
           <h2>Answers for Meta reviewers and revenue teams.</h2>
         </div>
         <div class="faq-list" id="faq-list"></div>
+      </section>
+
+      <section class="contact glass" id="contact">
+        <div class="section-head compact">
+          <p class="eyebrow">Contact</p>
+          <h2>Tell us your channels and volumes.</h2>
+          <p class="lead">We’ll reply with a tailored rollout and template pack for Meta approval.</p>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <label>
+              Your name / company
+              <input type="text" name="name" placeholder="Mahmoud — AlNajah Stores" required>
+            </label>
+            <label>
+              Work email
+              <input type="email" name="email" placeholder="you@company.com" required>
+            </label>
+          </div>
+          <div class="form-row">
+            <label>
+              Channels
+              <select name="channels">
+                <option>WhatsApp + Instagram</option>
+                <option>WhatsApp only</option>
+                <option>Instagram + Facebook</option>
+                <option>Telegram + Web chat</option>
+                <option>All channels</option>
+              </select>
+            </label>
+            <label>
+              Monthly conversations
+              <select name="volume">
+                <option>Under 2k</option>
+                <option>2k - 10k</option>
+                <option>10k - 50k</option>
+                <option>50k+</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            What do you want to automate?
+            <textarea name="message" rows="3" placeholder="Lead capture, COD confirmations, inventory-aware replies..." required></textarea>
+          </label>
+          <div class="form-actions">
+            <button class="primary-btn large" type="submit">Send brief</button>
+            <a class="ghost-btn large" href="mailto:hello@automio.jo3.org?subject=Automio%20Brief">Email instead</a>
+          </div>
+          <p class="muted">We reply in under 24h with a compliant flow outline and next steps.</p>
+        </form>
       </section>
     </main>
 
@@ -340,11 +422,11 @@
       <button class="close-btn" id="about-close" aria-label="Close about modal">✕</button>
       <p class="eyebrow">IDRISIUM Signature</p>
       <h3 id="about-title">About Automio &amp; Idris Ghamid</h3>
-      <p class="lead">Automio is built to unify Meta channels with rigorous automation. Crafted by Mahmoud Abo elros (Founder) with co-founders Idris Ghamid, Shady Ahmed, and Aymen Ali.</p>
+      <p class="lead">Automio is built to unify Meta channels with rigorous automation. Crafted by محمود عبدالعزيز عبدالغني رجب ابو الروس (Mahmoud Abo Elros, Founder) مع المؤسسين المشاركين Idris Ghamid, Shady Ahmed, و Aymen Ali.</p>
       <div class="about-grid">
         <div>
           <p class="muted">Founder</p>
-          <h4>Mahmoud Abo elros</h4>
+          <h4>محمود عبدالعزيز عبدالغني رجب ابو الروس</h4>
           <p>Product-led founder proving Automio is the real, compliant automation layer for Meta.</p>
         </div>
         <div>
