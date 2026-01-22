@@ -87,9 +87,29 @@ const team = [
   },
 ];
 
+const faqs = [
+  {
+    q: 'How do you satisfy Meta’s policies?',
+    a: 'We design opt-ins, tags, and notification types to match Meta’s messaging rules. Domain (automio.jo3.org) is verified and journeys are auditable.',
+  },
+  {
+    q: 'Can you integrate my inventory and CRM?',
+    a: 'Yes. Shopify, HubSpot, Sheets, custom APIs. Bots only propose items that are in stock, and write back orders and lead status.',
+  },
+  {
+    q: 'What about Arabic/English bilingual flows?',
+    a: 'We ship bilingual intents, fallbacks, and templates. Region-aware escalation goes to the right team or WhatsApp agent.',
+  },
+  {
+    q: 'How fast can we go live?',
+    a: 'Pilot in 10–14 days: connect channels, map data, ship 3–6 playbooks, and observe with weekly reports.',
+  },
+];
+
 const connectorsGrid = document.getElementById('connectors-grid');
 const flowsGrid = document.getElementById('flows-grid');
 const teamGrid = document.getElementById('team-grid');
+const faqList = document.getElementById('faq-list');
 
 function createCard({ title, desc, tags }) {
   const el = document.createElement('div');
@@ -120,6 +140,18 @@ function createTeamCard(member) {
 connectors.forEach((c) => connectorsGrid.appendChild(createCard(c)));
 flows.forEach((f) => flowsGrid.appendChild(createCard(f)));
 team.forEach((m) => teamGrid.appendChild(createTeamCard(m)));
+faqs.forEach((item, idx) => {
+  const el = document.createElement('div');
+  el.className = 'faq-item';
+  el.innerHTML = `
+    <div class="faq-question">
+      <span>${item.q}</span>
+      <span class="pill">${idx === 0 ? 'Meta' : 'Answer'}</span>
+    </div>
+    <div class="faq-answer">${item.a}</div>
+  `;
+  faqList.appendChild(el);
+});
 
 // Animations on scroll
 const observer = new IntersectionObserver(
@@ -181,4 +213,20 @@ const mobileMenu = document.getElementById('mobile-menu');
 menuToggle.addEventListener('click', () => {
   const open = mobileMenu.style.display === 'flex';
   mobileMenu.style.display = open ? 'none' : 'flex';
+});
+
+// Close mobile menu on nav click
+mobileMenu.querySelectorAll('a, button').forEach((el) =>
+  el.addEventListener('click', () => {
+    mobileMenu.style.display = 'none';
+  })
+);
+
+// FAQ accordion
+faqList.querySelectorAll('.faq-item').forEach((item) => {
+  item.addEventListener('click', () => {
+    const active = item.classList.contains('active');
+    faqList.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('active'));
+    if (!active) item.classList.add('active');
+  });
 });
