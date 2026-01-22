@@ -70,6 +70,21 @@ const team = [
     role: 'Founder — +201063200566',
     bio: 'المؤسس يقود بناء الأتمتة والامتثال بالكامل، جاهز للتواصل المباشر عبر الرقم أعلاه.',
   },
+  {
+    name: 'Idris Ghamid',
+    role: 'Product & AI Lead',
+    bio: 'يصمم البلايبوكس الذكية وضوابط الامتثال ويقود تجربة المنتج.',
+  },
+  {
+    name: 'Shady Ahmed',
+    role: 'Ops & Delivery Lead',
+    bio: 'يدير التشغيل وإطلاق الأتمتة مع الحفاظ على الـ SLAs.',
+  },
+  {
+    name: 'Aymen Ali',
+    role: 'Engineering & Integrations Lead',
+    bio: 'يبني الموصلات، يضمن موثوقية البيانات والأداء لكل القنوات.',
+  },
 ];
 
 const faqs = [
