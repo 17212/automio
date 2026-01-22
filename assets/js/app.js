@@ -67,23 +67,8 @@ const flows = [
 const team = [
   {
     name: 'محمود عبدالعزيز عبدالغني رجب ابو الروس',
-    role: 'Founder — Product & GTM',
-    bio: 'Leads Automio to prove to Meta and customers that automation can be trustworthy.',
-  },
-  {
-    name: 'Idris Ghamid',
-    role: 'Co-Founder — Product & AI',
-    bio: 'Designs AI playbooks, compliance guardrails, and pixel-perfect experiences.',
-  },
-  {
-    name: 'Shady Ahmed',
-    role: 'Co-Founder — Ops & Delivery',
-    bio: 'Ensures every rollout hits SLAs, from pilots to scale programs.',
-  },
-  {
-    name: 'Aymen Ali',
-    role: 'Co-Founder — Engineering & Integrations',
-    bio: 'Owns connectors, data reliability, and performance for all channels.',
+    role: 'Founder — +201063200566',
+    bio: 'المؤسس يقود بناء الأتمتة والامتثال بالكامل، جاهز للتواصل المباشر عبر الرقم أعلاه.',
   },
 ];
 
