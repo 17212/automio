@@ -142,73 +142,78 @@ function createTeamCard(member) {
   return el;
 }
 
-connectors.forEach((c) => connectorsGrid.appendChild(createCard(c)));
-flows.forEach((f) => flowsGrid.appendChild(createCard(f)));
-team.forEach((m) => teamGrid.appendChild(createTeamCard(m)));
-faqs.forEach((item, idx) => {
-  const el = document.createElement('div');
-  el.className = 'faq-item';
-  el.innerHTML = `
-    <div class="faq-question">
-      <span>${item.q}</span>
-      <span class="pill">${idx === 0 ? 'Meta' : 'Answer'}</span>
-    </div>
-    <div class="faq-answer">${item.a}</div>
-  `;
-  faqList.appendChild(el);
-});
+if (connectorsGrid) connectors.forEach((c) => connectorsGrid.appendChild(createCard(c)));
+if (flowsGrid) flows.forEach((f) => flowsGrid.appendChild(createCard(f)));
+if (teamGrid) team.forEach((m) => teamGrid.appendChild(createTeamCard(m)));
+if (faqList)
+  faqs.forEach((item, idx) => {
+    const el = document.createElement('div');
+    el.className = 'faq-item';
+    el.innerHTML = `
+      <div class="faq-question">
+        <span>${item.q}</span>
+        <span class="pill">${idx === 0 ? 'Meta' : 'Answer'}</span>
+      </div>
+      <div class="faq-answer">${item.a}</div>
+    `;
+    faqList.appendChild(el);
+  });
 
-const logos = ['Noor Retail', 'Forsa Telecom', 'Luma Beauty', 'Atlas Foods', 'Helio Market', 'Northwind Ecom'];
-logos.forEach((name) => {
-  const chip = document.createElement('div');
-  chip.className = 'logo-chip fade-up';
-  chip.textContent = name;
-  logosGrid.appendChild(chip);
-});
-
-const testimonials = [
-  {
-    quote: 'Automio cut our COD returns by 18% with automated confirmations on WhatsApp + IG.',
-    name: 'Mariam K.',
-    role: 'COO, Noor Retail (KSA)',
-  },
-  {
-    quote: 'Meta reviewers passed our templates in one go. The audit trail was the clincher.',
-    name: 'Ali F.',
-    role: 'Head of CX, Forsa Telecom (UAE)',
-  },
-  {
-    quote: 'Inventory-aware replies stopped 90% of “is this available?” tickets overnight.',
-    name: 'Rania S.',
-    role: 'Growth Lead, Luma Beauty (EG)',
-  },
-];
-
-let testimonialIndex = 0;
-function renderTestimonial(index) {
-  const item = testimonials[index];
-  testimonialCard.querySelector('.testimonial-quote').textContent = `“${item.quote}”`;
-  tName.textContent = item.name;
-  tRole.textContent = item.role;
-  testimonialDots.querySelectorAll('.dot').forEach((dot, i) => {
-    dot.classList.toggle('active', i === index);
+if (logosGrid) {
+  const logos = ['Noor Retail', 'Forsa Telecom', 'Luma Beauty', 'Atlas Foods', 'Helio Market', 'Northwind Ecom'];
+  logos.forEach((name) => {
+    const chip = document.createElement('div');
+    chip.className = 'logo-chip fade-up';
+    chip.textContent = name;
+    logosGrid.appendChild(chip);
   });
 }
 
-testimonials.forEach((_, i) => {
-  const dot = document.createElement('div');
-  dot.className = `dot ${i === 0 ? 'active' : ''}`;
-  dot.addEventListener('click', () => {
-    testimonialIndex = i;
-    renderTestimonial(testimonialIndex);
+if (testimonialCard && testimonialDots && tName && tRole) {
+  const testimonials = [
+    {
+      quote: 'Automio cut our COD returns by 18% with automated confirmations on WhatsApp + IG.',
+      name: 'Mariam K.',
+      role: 'COO, Noor Retail (KSA)',
+    },
+    {
+      quote: 'Meta reviewers passed our templates in one go. The audit trail was the clincher.',
+      name: 'Ali F.',
+      role: 'Head of CX, Forsa Telecom (UAE)',
+    },
+    {
+      quote: 'Inventory-aware replies stopped 90% of “is this available?” tickets overnight.',
+      name: 'Rania S.',
+      role: 'Growth Lead, Luma Beauty (EG)',
+    },
+  ];
+
+  let testimonialIndex = 0;
+  function renderTestimonial(index) {
+    const item = testimonials[index];
+    testimonialCard.querySelector('.testimonial-quote').textContent = `“${item.quote}”`;
+    tName.textContent = item.name;
+    tRole.textContent = item.role;
+    testimonialDots.querySelectorAll('.dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  testimonials.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = `dot ${i === 0 ? 'active' : ''}`;
+    dot.addEventListener('click', () => {
+      testimonialIndex = i;
+      renderTestimonial(testimonialIndex);
+    });
+    testimonialDots.appendChild(dot);
   });
-  testimonialDots.appendChild(dot);
-});
-renderTestimonial(testimonialIndex);
-setInterval(() => {
-  testimonialIndex = (testimonialIndex + 1) % testimonials.length;
   renderTestimonial(testimonialIndex);
-}, 5500);
+  setInterval(() => {
+    testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+    renderTestimonial(testimonialIndex);
+  }, 5500);
+}
 
 // Animations on scroll
 const observer = new IntersectionObserver(
@@ -251,42 +256,49 @@ document.querySelectorAll('.metric-value').forEach((el) => metricObserver.observ
 
 // About modal
 const aboutModal = document.getElementById('about-modal');
-const openAbout = () => aboutModal.classList.add('open');
-const closeAbout = () => aboutModal.classList.remove('open');
+const openAbout = () => aboutModal && aboutModal.classList.add('open');
+const closeAbout = () => aboutModal && aboutModal.classList.remove('open');
 
 ['about-btn', 'about-btn-footer', 'about-btn-mobile'].forEach((id) => {
   const btn = document.getElementById(id);
-  if (btn) btn.addEventListener('click', openAbout);
+  if (btn && aboutModal) btn.addEventListener('click', openAbout);
 });
 
-document.getElementById('about-close').addEventListener('click', closeAbout);
-aboutModal.addEventListener('click', (e) => {
-  if (e.target === aboutModal) closeAbout();
-});
+const aboutClose = document.getElementById('about-close');
+if (aboutClose && aboutModal) aboutClose.addEventListener('click', closeAbout);
+if (aboutModal)
+  aboutModal.addEventListener('click', (e) => {
+    if (e.target === aboutModal) closeAbout();
+  });
 
 // Mobile menu
 const menuToggle = document.getElementById('menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
-menuToggle.addEventListener('click', () => {
-  const open = mobileMenu.style.display === 'flex';
-  mobileMenu.style.display = open ? 'none' : 'flex';
-});
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener('click', () => {
+    const open = mobileMenu.style.display === 'flex';
+    mobileMenu.style.display = open ? 'none' : 'flex';
+  });
+}
 
 // Close mobile menu on nav click
-mobileMenu.querySelectorAll('a, button').forEach((el) =>
-  el.addEventListener('click', () => {
-    mobileMenu.style.display = 'none';
-  })
-);
+if (mobileMenu)
+  mobileMenu.querySelectorAll('a, button').forEach((el) =>
+    el.addEventListener('click', () => {
+      mobileMenu.style.display = 'none';
+    })
+  );
 
 // FAQ accordion
-faqList.querySelectorAll('.faq-item').forEach((item) => {
-  item.addEventListener('click', () => {
-    const active = item.classList.contains('active');
-    faqList.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('active'));
-    if (!active) item.classList.add('active');
+if (faqList) {
+  faqList.querySelectorAll('.faq-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      const active = item.classList.contains('active');
+      faqList.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('active'));
+      if (!active) item.classList.add('active');
+    });
   });
-});
+}
 
 // Contact form mailto
 const contactForm = document.getElementById('contact-form');

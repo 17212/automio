@@ -372,6 +372,27 @@ main {
   gap: 14px;
 }
 
+.product,
+.product-glass {
+  padding: clamp(16px, 3vw, 22px);
+  border-radius: var(--radius-lg);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 12px 0;
+}
+
+.product-card {
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  box-shadow: var(--shadow-2);
+}
+
 .logos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
