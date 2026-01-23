@@ -68,29 +68,29 @@ const team = [
   {
     name: 'محمود عبدالعزيز عبدالغني رجب ابو الروس',
     role: 'Founder — +201063200566',
-    bio: 'المؤسس يقود بناء الأتمتة والامتثال بالكامل، جاهز للتواصل المباشر عبر الرقم أعلاه.',
+    bio: 'Founder leading automation, compliance, and delivery. Reach him directly at the number above.',
   },
   {
     name: 'Idris Ghamid',
     role: 'Product & AI Lead',
-    bio: 'يصمم البلايبوكس الذكية وضوابط الامتثال ويقود تجربة المنتج.',
+    bio: 'Designs intelligent playbooks, compliance guardrails, and product experience.',
   },
   {
     name: 'Shady Ahmed',
     role: 'Ops & Delivery Lead',
-    bio: 'يدير التشغيل وإطلاق الأتمتة مع الحفاظ على الـ SLAs.',
+    bio: 'Runs operations and launches automation while keeping SLAs healthy.',
   },
   {
     name: 'Aymen Ali',
     role: 'Engineering & Integrations Lead',
-    bio: 'يبني الموصلات، يضمن موثوقية البيانات والأداء لكل القنوات.',
+    bio: 'Builds connectors and ensures data reliability and performance across channels.',
   },
 ];
 
 const faqs = [
   {
-    q: 'How do you satisfy Meta’s policies?',
-    a: 'We design opt-ins, tags, and notification types to match Meta’s messaging rules. Domain (automio.jo3.org) is verified and journeys are auditable.',
+    q: 'How do you satisfy platform messaging policies?',
+    a: 'We design opt-ins, tags, and notification types to match channel rules. Domain (automio.jo3.org) is verified and every journey is auditable.',
   },
   {
     q: 'Can you integrate my inventory and CRM?',
@@ -98,11 +98,11 @@ const faqs = [
   },
   {
     q: 'What about Arabic/English bilingual flows?',
-    a: 'We ship bilingual intents, fallbacks, and templates. Region-aware escalation goes to the right team or WhatsApp agent.',
+    a: 'We ship bilingual intents, fallbacks, and templates. Region-aware escalation routes to the right human team.',
   },
   {
     q: 'How fast can we go live?',
-    a: 'Pilot in 10–14 days: connect channels, map data, ship 3–6 playbooks, and observe with weekly reports.',
+    a: 'Pilot in 10–14 days: connect channels, map data, ship playbooks, and monitor weekly.',
   },
 ];
 
