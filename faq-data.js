@@ -10,10 +10,10 @@ const faqs = [
   },
   {
     q: 'Do you support Arabic/English flows?',
-    a: 'We ship bilingual intents, fallbacks, and templates. Region-aware escalation goes إلى الفريق المناسب.',
+    a: 'We ship bilingual intents, fallbacks, and templates. Region-aware escalation routes to the right team.',
   },
   {
     q: 'How fast can we go live?',
-    a: 'Pilot in 10–14 days: connect channels, map data, ship playbooks، ومراقبة أسبوعية.',
+    a: 'Pilot in 10–14 days: connect channels, map data, ship playbooks, and monitor weekly.',
   },
 ];
